@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supplier Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="../css/supplier.css">
+    <link rel="stylesheet" href="../css/S.Mquery.css">
+</head>
+
+<body>
+    <div id="close-icon">
+        <div class="slide2">
+        <ul>
+            <li><a href="Dashboard.html"> <i class="fas fa-tv"></i></a></li>
+            <li><a href="#"> <i class="fas fa-university"></i></a></li>
+            <li><a href="#"> <i class="fab fa-dollar"></i></a></li>
+            <li><a href="supplier.html"> <i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="#"> <i class="fas fa-box"></i></a></li>
+            <li><a href="#"> <i class="far fa-chart-bar"></i></a></li>
+            <li><a href="#"> <i class="fas fa-chart-line"></i></a></li>
+            <li><a href="#"> <i class="fas fa-cogs"></i></a></li>
+        </ul>
+    </div>
+    <div class="toggle" onclick="toggleSidebar()">
+        <span class="top-line common"></span>
+        <span class="middle-line common"></span>
+        <span class="bottom-line common"></span>
+    </div>
+    <div class="slide" id="sidebar">
+        <h1 class="sh">Accounts</h1>
+        <div class="line"></div>
+        <ul>
+            <li><a href="Dashboard.html"> <i class="fas fa-tv"></i>Dashboard</a></li>
+            <li><a href="#"> <i class="fas fa-university"></i>Bank</a></li>
+            <li><a href="#"> <i class="fab fa-dollar"></i>Sales</a></li>
+            <li><a href="supplier.html"> <i class="fas fa-shopping-cart"></i>Purchase</a></li>
+            <li><a href="#"> <i class="fas fa-box"></i>Inventory</a></li>
+            <li><a href="#"> <i class="far fa-chart-bar"></i>Reports</a></li>
+            <li><a href="#"> <i class="fas fa-chart-line"></i>Analytics</a></li>
+            <li><a href="#"> <i class="fas fa-cogs"></i>Settings</a></li>
+        </ul>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li class="Sup"><a href="#"></a><i class="fas fa-user"></i> Support</a></li>
+            <li><a href="#"></a><i class="fas fa-cogs set"></i></a></li>
+        </ul>
+        <div class="ndiv">
+            <a href="">Click here for Upgrade <i class="fas fa-level-up-alt"></i></a>
+        </div>
+
+    </nav>
+    <div class="main-content" id="main-Content">
+        <div class="links">
+            <ul>
+                <li><a href="#"> <i class="fas fa-home home"></i>Home /</a></li>
+                <li><a href="#"> <i class="fas fa-shopping-cart cart"></i>Purchases /</a></li>
+                <li><a href="#" id="addnewbill" onclick="renewMainContent()"> <i
+                            class="fas fa-file-invoice-dollar dollar"></i>Add new bill</a></li>
+            </ul>
+            <div class="line1"></div>
+        </div>
+        <div class="main-h">
+            <p>Supplier Bill Information</p>
+            <div class="line2"></div>
+            <h4 onclick="toggleSupplierForm()"> Supplier Details <i class="fas fa-caret-down"></i></h4>
+        </div>
+        <form id="supplierForm">
+            <label for="supplier">Supplier:</label>
+            <select id="supplier" name="supplier" placeholder="Select Supplier">
+                <option value="supplier1">Supplier 1</option>
+                <option value="supplier2">Supplier 2</option>
+            </select>
+            <br><br>
+            <label for="billDate">Bill Date:</label>
+            <input type="text" id="billDate" name="billDate" class="datepicker" placeholder="dd/mm/yyyy" required>
+            <br><br>
+            <label for="dueDate">Due Date:</label>
+            <input type="text" id="dueDate" name="dueDate" class="datepicker1" placeholder="dd/mm/yyyy" required>
+            <br><br>
+            <label for="terms">Terms (in days):</label>
+            <input type="number" id="terms" name="terms" required>
+            <br><br>
+            <label class="billNumber" for="billNumber">Bill Number:</label>
+            <input type="text" id="billNumber" name="billNumber" required>
+            <br><br>
+            <label class="address" for="address">Address:</label>
+            <textarea id="address" name="address" rows="5" style="width: 150px;" required></textarea>
+        </form>
+        <div class="main-h2">
+            <h4 onclick="toggleTesting()">Expense details <i class="fas fa-caret-down"></i></h4>
+        </div>
+        <div class="testing" id="testing">
+            <table id="table1">
+                <thead>
+                    <tr>
+                        <th>| Expenses |</th>
+                        <th>| Description |</th>
+                        <th>| Amount |</th>
+                        <th>| Disc% |</th>
+                        <th>| Discount |</th>
+                        <th>| Tax rate |</th>
+                        <th>| Sales tax |</th>
+                        <th>| Action |</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td1" contenteditable="true"></td>
+                        <td class="td2" contenteditable="true"></td>
+                        <td class="td3" contenteditable="true"></td>
+                        <td class="td4" contenteditable="true"></td>
+                        <td class="td5" contenteditable="true"></td>
+                        <td class="td6" contenteditable="true"></td>
+                        <td class="td7" contenteditable="true"></td>
+                        <td>
+                            <button class="delete-row-btn" onclick="deleteRow(this)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="add-row-btn" onclick="addRow('table1')">Add Row</button>
+        </div>
+        <div class="main-h3">
+            <h4 onclick="toggleTesting2()">Product details <i class="fas fa-caret-down"></i></h4>
+        </div>
+        <div class="testing2" id="testing2">
+            <table id="table2">
+                <thead>
+                    <tr>
+                        <th>| Product/Service |</th>
+                        <th>| Description |</th>
+                        <th>| Unit |</th>
+                        <th>| Qty |</th>
+                        <th>| Rate |</th>
+                        <th>| Amount |</th>
+                        <th>| Disc% |</th>
+                        <th>| Discount |</th>
+                        <th>| Action |</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td20" contenteditable="true"></td>
+                        <td class="td21" contenteditable="true"></td>
+                        <td class="td22" contenteditable="true"></td>
+                        <td class="td23" contenteditable="true"></td>
+                        <td class="td24" contenteditable="true"></td>
+                        <td class="td25" contenteditable="true"></td>
+                        <td class="td26" contenteditable="true"></td>
+                        <td class="td27" contenteditable="true"></td>
+                        <td>
+                            <button class="delete-row-btn2" onclick="deleteRow(this)">Delete</button>
+                        </td>
+                    </tr>
+                    <tr class="total">
+                        <td>total</td>
+                        <td>00</td>
+                        <td>00</td>
+                        <td>00</td>
+                        <td>00</td>
+                        <td>00</td>
+                        <td>00</td>
+                        <td>00</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="add-row-btn2" onclick="addRow('table2')">Add Row</button>
+        </div>
+        <br><br><br><br>
+        <label class="note" for="address">Note:</label>
+        <textarea id="note" name="address" rows="5" required></textarea>
+
+        <form class="bill" id="billForm">
+            <label for="subTotal">Sub Total:</label>
+            <input  id="subTotal" name="subTotal" readonly>
+            <br><br>
+            <label for="discount">Discount:</label>
+            <input  id="discount" name="discount" readonly>
+            <br><br>
+            <label for="salesTax">Sales Tax:</label>
+            <input  id="salesTax" name="salesTax"  readonly>
+            <br><br>
+            <label for="total">Total:</label>
+            <input  id="total" name="total" readonly>
+            <br><br>
+            <select id="currencySelector">
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="PKR">PKR</option>
+                <!-- Add more currency options as needed -->
+            </select>
+            <button id="calculateButton" type="button">Calculate Total</button>
+        </form>
+        <br><br><br>
+        <div class="last">
+            <table id="table3">
+                <thead>
+                    <tr>
+                        <th class="prob1">| Date |</th>
+                        <th  class="prob2">| Bank |</th>
+                        <th  class="t3">| Mode |</th>
+                        <th  class="t4">| Ref No |</th>
+                        <th  class="t5">| Amount |</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td11">
+                            <div id="dateBox"></div>
+                        </td>
+                        <td class="td12"><select id="bankSelect">
+                                <option value="bank1">Bank 1</option>
+                                <option value="bank2">Bank 2</option>
+                                <option value="bank3">Bank 3</option>
+                            </select></td>
+                        <td class="td13"><select id="modeSelect">
+                                <option value="bank1">Mode1</option>
+                                <option value="bank2">Mode2</option>
+                                <option value="bank3">Mode3</option>
+                            </select></td>
+                        <td class="td14"><input type="text" id="refno" name="billNumber" required></td>
+                        <td class="td15"><input type="text" id="tot" name="billNumber" required></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br><br><br>
+    </div>
+
+    <!-- Java Script -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+        var calculateButton = document.getElementById('calculateButton');
+        calculateButton.addEventListener('click', calculateTotal);
+
+        function calculateTotal() {
+            var subTotal = parseFloat(document.getElementById('subTotal').value) || 0;
+            var discount = parseFloat(document.getElementById('discount').value) || 0;
+
+            var total = subTotal - discount;
+
+            document.getElementById('total').value = total;
+        }
+    });
+
+
+
+// 
+document.addEventListener('DOMContentLoaded', function() {
+    var table = document.getElementById('table1');
+
+    // Add event listener to the table for input changes in "td5" and "td7"
+    table.addEventListener('input', updateFormValues);
+
+    function updateFormValues() {
+        updateInput('discount', 4); // Update discount input for "td5"
+        updateInput('salesTax', 6); // Update salesTax input for "td7"
+    }
+
+    function updateInput(inputId, columnIndex) {
+        var rows = table.getElementsByTagName('tr');
+        var total = 0;
+
+        // Loop through each row and update total
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName('td');
+            var cellValue = parseFloat(cells[columnIndex].textContent) || 0;
+            total += cellValue;
+        }
+
+        // Update the specified input in the form
+        document.getElementById('billForm').elements[inputId].value = total;
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to the currency selector
+    var currencySelector = document.getElementById('currencySelector');
+    currencySelector.addEventListener('change', updateCurrencyDisplay);
+
+    // Initial currency display update
+    updateCurrencyDisplay();
+
+    function updateCurrencyDisplay() {
+        // Get the selected currency
+        var selectedCurrency = currencySelector.value;
+
+        // Get all input fields with the 'readonly' attribute inside the form
+        var inputFields = document.querySelectorAll('#billForm [readonly]');
+
+        // Clear previous currency symbols
+        inputFields.forEach(function(input) {
+            var currencyElement = input.nextElementSibling; // Get the next element (assumed to be the currency element)
+            if (currencyElement && currencyElement.classList.contains('currency-symbol')) {
+                currencyElement.remove(); // Remove the previous currency symbol element
+            }
+        });
+
+        // Update the display for each input field based on the selected currency
+        inputFields.forEach(function(input) {
+            var originalValue = input.getAttribute('data-original-value') || input.value;
+            var currencySymbol = getCurrencySymbol(selectedCurrency);
+
+            // Display currency symbol next to the input
+            input.insertAdjacentHTML('afterend', '<span class="currency-symbol">' + currencySymbol + '</span>');
+        });
+    }
+
+    // Helper function to get currency symbols
+    function getCurrencySymbol(currencyCode) {
+        // Replace this with a more comprehensive list of currency symbols
+        var currencySymbols = {
+            'USD': '$',
+            'EUR': '€',
+            'PKR': '₨',
+            // Add more currency symbols as needed
+        };
+        return currencySymbols[currencyCode] || currencyCode;
+    }
+});
+
+
+
+
+
+
+
+
+     function calculateSubTotal() {
+        var table = document.getElementById('table1');
+        var rows = table.getElementsByTagName('tr');
+        var subTotal = 0;
+
+        for (var i = 1; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName('td');
+            var td1Value = parseFloat(cells[0].textContent) || 0;
+            var td3Value = parseFloat(cells[2].textContent) || 0;
+            var td7Value = parseFloat(cells[6].textContent) || 0;
+            subTotal += td1Value + td3Value + td7Value;
+        }
+
+        document.getElementById('subTotal').value = subTotal;
+    }
+
+    // Add an event listener to recalculate subtotal on cell content change
+    var table = document.getElementById('table1');
+    table.addEventListener('input', calculateSubTotal);
+
+    // Call the function to calculate the initial subtotal
+    calculateSubTotal();
+
+
+
+
+
+function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-Content'); // Updated ID
+    var menuItems = document.querySelectorAll('#sidebar ul li a, .sh, .line');
+
+    // Toggle the width of the sidebar
+    if (sidebar.style.width === '180px' || sidebar.style.width === '') {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+}
+
+function closeSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-Content'); // Updated ID
+    var menuItems = document.querySelectorAll('#sidebar ul li a, .sh, .line');
+
+    sidebar.style.width = '0px';
+    mainContent.style.marginLeft = isMobile() ? '50px' : '100px';
+
+    menuItems.forEach(function (item) {
+        item.style.display = 'none';
+    });
+
+    sidebar.style.backgroundColor = 'transparent';
+}
+
+function openSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-Content'); // Updated ID
+    var menuItems = document.querySelectorAll('#sidebar ul li a, .sh, .line');
+
+    sidebar.style.width = '180px';
+    mainContent.style.marginLeft = '180px';
+
+    menuItems.forEach(function (item) {
+        item.style.display = 'block';
+    });
+
+    sidebar.style.backgroundColor = 'white';
+}
+
+function isMobile() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+
+        function toggleSupplierForm() {
+            var supplierForm = document.getElementById('supplierForm');
+
+            // Toggle the max-height property to smoothly hide/show the form
+            supplierForm.style.maxHeight = supplierForm.style.maxHeight === '0px' ? '500px' : '0'; // Adjust max height accordingly
+        }
+        function toggleTesting() {
+            var testing = document.getElementById('testing');
+
+            // Toggle the max-height property to smoothly hide/show the form
+            testing.style.maxHeight = testing.style.maxHeight === '0px' ? '1000px' : '0'; // Adjust max height accordingly
+        }
+        function toggleTesting2() {
+            var testing2 = document.getElementById('testing2');
+
+            // Toggle the max-height property to smoothly hide/show the form
+            testing2.style.maxHeight = testing2.style.maxHeight === '0px' ? '1000px' : '0'; // Adjust max height accordingly
+        }
+        function renewMainContent() {
+            // Reset the content of input fields
+            document.getElementById('supplier').value = '';
+            document.getElementById('billDate').value = '';
+            document.getElementById('dueDate').value = '';
+            document.getElementById('terms').value = '';
+            document.getElementById('billNumber').value = '';
+            document.getElementById('address').value = '';
+            document.getElementById('note').value = '';
+            document.getElementById('subTotal').value = '';
+            document.getElementById('discount').value = '';
+            document.getElementById('salesTax').value = '';
+            document.getElementById('total').value = '';
+            document.getElementById('refno').value = '';
+            document.getElementById('tot').value = '';
+            clearTableContent('table1');
+            clearTableContent('table2');
+            setPlaceholderValues('table1');
+            setPlaceholderValues('table2');
+        }
+        function clearTableContent(tableId) {
+            var table = document.getElementById(tableId);
+            var tbody = table.getElementsByTagName('tbody')[0];
+            var rows = tbody.getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+
+                for (var j = 0; j < cells.length - 1; j++) {
+                    cells[j].textContent = '';
+                }
+            }
+        }
+        function setPlaceholderValues(tableId) {
+            var table = document.getElementById(tableId);
+            var tbody = table.getElementsByTagName('tbody')[0];
+            var rows = tbody.getElementsByTagName('tr');
+
+            for (var i = 0; i < rows.length; i++) {
+                var cells = rows[i].getElementsByTagName('td');
+
+                for (var j = 0; j < cells.length - 1; j++) {
+                    cells[j].textContent = '0';
+                }
+            }
+        }
+        const bankSelect = document.getElementById('bankSelect');
+        bankSelect.addEventListener('change', function () {
+            const selectedBank = bankSelect.value;
+            console.log(`Selected Bank: ${selectedBank}`);
+        });
+        function updateDate() {
+            const currentDate = new Date();
+            const formattedDate = currentDate.toISOString().slice(0, 19).replace("T", " ");
+            document.getElementById('dateBox').textContent = formattedDate;
+            setTimeout(updateDate, 1000);
+        }
+        updateDate();
+        
+        function addRow(tableId) {
+            const table = document.getElementById(tableId);
+            const tbody = table.querySelector('tbody');
+            if (!tbody && tableId === 'table1') {
+                const newTbody = document.createElement('tbody');
+                table.appendChild(newTbody);
+            }
+            const newRow = document.createElement('tr');
+            let numColumns;
+            if (tableId === 'table1') {
+                numColumns = 7;
+            } else if (tableId === 'table2') {
+                numColumns = 8;
+            }
+            for (let i = 1; i <= numColumns; i++) {
+                const cell = document.createElement('td');
+                cell.contentEditable = true;
+                newRow.appendChild(cell);
+            }
+            const actionCell = document.createElement('td');
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.classList.add(tableId === 'table1' ? 'delete-row-btn' : 'delete-row-btn2');
+            deleteButton.onclick = function () {
+                deleteRow(this);
+            };
+            actionCell.appendChild(deleteButton);
+            newRow.appendChild(actionCell);
+            if (tbody) {
+                tbody.appendChild(newRow);
+            }
+            if (tableId === 'table2') {
+                const totalRow = tbody.querySelector('tr.total');
+                if (totalRow) {
+                    tbody.appendChild(totalRow);
+                }
+            }
+        }
+        function deleteRow(button) {
+            const row = button.closest('tr');
+            if (row && row.parentElement) {
+                row.parentElement.removeChild(row);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function () {
+            flatpickr(".datepicker", {
+                dateFormat: "Y-m-d",
+            });
+
+            flatpickr(".datepicker1", {
+                dateFormat: "Y-m-d",
+                // Additional options for the second datepicker can be added here
+            });
+        });
+    </script>
+    <!-- Java Script -->
+</body>
+
+</html>

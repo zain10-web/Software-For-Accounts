@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/Dashboard.css">
+    <link rel="stylesheet" href="../css/D.Mquery.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <input type="checkbox">
+    <div id="close-icon">
+        <div class="slide2">
+        <ul>
+            <li><a href="Dashboard.html"> <i class="fas fa-tv"></i></a></li>
+            <li><a href="#"> <i class="fas fa-university"></i></a></li>
+            <li><a href="#"> <i class="fab fa-dollar"></i></a></li>
+            <li><a href="supplier.html"> <i class="fas fa-shopping-cart"></i></a></li>
+            <li><a href="#"> <i class="fas fa-box"></i></a></li>
+            <li><a href="#"> <i class="far fa-chart-bar"></i></a></li>
+            <li><a href="#"> <i class="fas fa-chart-line"></i></a></li>
+            <li><a href="#"> <i class="fas fa-cogs"></i></a></li>
+        </ul>
+    </div>
+
+    </div>
+    <div class="toggle" onclick="toggleSidebar()">
+        <span class="top-line common"></span>
+        <span class="middle-line common"></span>
+        <span class="bottom-line common"></span>
+    </div>
+    <div class="slide" id="sidebar">
+        <h1 class="sh">Accounts</h1>
+        <div class="line3"></div>
+        <ul>
+            <li><a href="Dashboard.html"> <i class="fas fa-tv"></i>Dashboard</a></li>
+            <li><a href="#"> <i class="fas fa-university"></i>Bank</a></li>
+            <li><a href="#"> <i class="fab fa-dollar"></i>Sales</a></li>
+            <li><a href="supplier.html"> <i class="fas fa-shopping-cart"></i>Purchase</a></li>
+            <li><a href="#"> <i class="fas fa-box"></i>Inventory</a></li>
+            <li><a href="#"> <i class="far fa-chart-bar"></i>Reports</a></li>
+            <li><a href="#"> <i class="fas fa-chart-line"></i>Analytics</a></li>
+            <li><a href="#"> <i class="fas fa-cogs"></i>Settings</a></li>
+        </ul>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li class="Sup"><a href="#"></a><i class="fas fa-user"></i> Support</a></li>
+            <li><a href="#"></a><i class="fas fa-cogs set"></i></a></li>
+        </ul>
+        <div class="ndiv">
+            <a href="">Click here for Upgrade <i class="fas fa-level-up-alt"></i></a>
+        </div>
+    </nav>
+    <div class="main-content" id="main-content">
+        <div class="Welcome">
+            <h3>Welcome,</h3>
+        </div>
+        <div id="userBox" class="user-box"></div>
+        <br>
+        <br>
+        <div class="flex">
+            <div class="cb">
+                <h3>Customer Balance</h3>
+                <div class="line4"></div>
+                <p class="upload">Unpaid</p>
+                <canvas class="line1" id="myCanvas"></canvas>
+                <div class="placeholder-text">00.0</div>
+                <p class="head1">Sales Recipts in last 30 Days</p>
+                <p class="head2">Amount</p>
+                <p class="head3">Total</p>
+                <canvas id="myCanvas"></canvas>
+                <div class="placeholder-text1">00.0</div>
+                <div class="line"></div>
+                <div class="placeholder-text2">00.0</div>
+                <div class="line2"></div>
+            </div>
+            <div class="pq">
+                <h3 class="pro">Product</h3>
+                <h3 class="quan">Quantity</h3>
+                <div class="line5"></div>
+                <p>Low Stock</p>
+                <p>Out of Stock</p>
+                <p>Over Sold</p>
+                <p>In Stock</p>
+
+                <h2 class="z">0</h2>
+                <h2 class="Ze">0</h2>
+                <h2 class="Zer">0</h2>
+                <h2 class="Zero">0</h2>
+            </div>
+            <div class="bank">
+                <h3>Bank</h3>
+                <div class="line6"></div>
+                <p>Cash on hand</p>
+                <p>Current account 1</p>
+                <p>Current account 2</p>
+                <p>Saving account 1</p>
+                <p>Saving account 2</p>
+                <h2 class="a">00.0</h2>
+                <h2 class="b">00.0</h2>
+                <h2 class="b">00.0</h2>
+                <h2 class="b">00.0</h2>
+                <h2 class="b">00.0</h2>
+            </div>
+        </div>
+        <div class="sales">
+            <h3>Sales chart</h3>
+            <div class="line7"></div>
+            <div class="chart-container">
+                <canvas class="linechart" id="myLineChart" height="auto" width="1000"></canvas>
+            </div>
+
+        </div>
+        <div class="sales2">
+            <h3>Sales</h3>
+            <div class="line8"></div>
+            <h2 class="placeholder">00.0</h2>
+            <div class="line9"></div>
+            <p>0</p>
+            <p>0.1</p>
+            <div class="line10"></div>
+            <p>-1</p>
+            <p>5.0</p>
+            <div class="line11"></div>
+            <p>0</p>
+            <p>1</p>
+            <label class="year" for="yearDropdown">Select Year:</label>
+            <select id="yearDropdown" onchange="updateContent()">
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+        </div>
+        <div class="expense">
+            <h3>Expenses</h3>
+            <div class="line13"></div>
+            <h1>00.0</h1>
+            <div class="line14"></div>
+            <label class="year1" for="yearDropdown">Select Year:</label>
+            <select id="yearDropdown" class="dropdown" onchange="updateContent()">
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+        </div>
+        <div class="pl">
+            <h3>Profit and Loss</h3>
+            <div class="line15"></div>
+            <label class="year2" for="yearDropdown">Select Year:</label>
+            <select id="yearDropdown" class="dropdown2" onchange="updateContent()">
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+            </select>
+            <p class="profit">Net Profit</p>
+            <h2 class="pf">00.0</h2>
+            <i class="fas fa-money-bill"></i>
+            <div class="line16"></div>
+            <p class="Income">Total Income</p>
+            <h2 class="in">00.0</h2>
+            <div class="line17"></div>
+            <p class="ex">Total Expense</p>
+            <h2 class="exp">00.0</h2>
+            <div class="line18"></div>
+        </div>
+    </div>
+    <script>
+        function updateContent() {
+            var selectedYear = document.getElementById("yearDropdown").value;
+            var placeholder = document.querySelector(".placeholder");
+        }
+        var ctx = document.getElementById('myLineChart').getContext('2d');
+        function isMobile() {
+            return window.matchMedia('(max-width: 768px)').matches;
+        }
+
+        
+        var chartWidth = isMobile() ? 100 : 100;
+
+                var data = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Monthly Sales',
+                borderColor: 'rgba(0, 128, 255)',
+                borderWidth: 3,
+                fill: false, // Set to true if you want to fill the area under the line
+                data: [65, 59, 80, 81, 56, 60, 20, 47, 90, 33, 29, 56],
+            }]
+        };
+
+        var options = {
+            responsive: true, // Set to true to make the chart responsive
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        };
+
+        
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: options
+        });
+        function toggleSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    var menuItems = document.querySelectorAll('#sidebar ul li a, .sh, .line3');
+    var closeIcon = document.getElementById('close-icon');
+
+    // Toggle the width of the sidebar
+    if (sidebar.style.width === '180px' || sidebar.style.width === '') {
+        closeSidebar();
+    } else {
+        openSidebar();
+    }
+}
+
+function closeSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    var menuItems = document.querySelectorAll('#sidebar ul li a, .sh, .line3');
+    var closeIcon = document.getElementById('close-icon');
+
+    sidebar.style.width = '50px';
+    mainContent.style.marginLeft = isMobile() ? '30px' : '100px';
+
+    menuItems.forEach(function (item) {
+        item.style.display = 'none';
+    });
+
+    sidebar.style.backgroundColor = 'transparent';
+
+    // Add or show close icon
+    closeIcon.style.display = 'block';
+}
+
+function openSidebar() {
+    var sidebar = document.getElementById('sidebar');
+    var mainContent = document.getElementById('main-content');
+    var menuItems = document.querySelectorAll('#sidebar ul li a, .sh, .line3');
+    var closeIcon = document.getElementById('close-icon');
+
+    sidebar.style.width = '180px';
+    mainContent.style.marginLeft = '180px';
+
+    menuItems.forEach(function (item) {
+        item.style.display = 'block';
+    });
+
+    sidebar.style.backgroundColor = 'white';
+
+    // Hide close icon
+    closeIcon.style.display = 'none';
+}
+
+function isMobile() {
+    return window.matchMedia('(max-width: 768px)').matches;
+}
+
+// Add an event listener to handle window resize
+window.addEventListener('resize', function () {
+    if (isMobile()) {
+        closeSidebar();
+    }
+});
+
+
+
+
+        function loginUser() {
+            var userName = prompt("Enter your name:");
+            if (userName !== null && userName.trim() !== "") {
+                var userBox = document.getElementById("userBox");
+                userBox.style.position = "absolute";
+                userBox.innerText = userName + "!";
+            }
+        }
+
+        loginUser();
+
+    
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.moveTo(20, 100);
+        ctx.lineTo(500, 100);
+        ctx.strokeStyle = "rgb(0, 128, 255)";
+        ctx.lineWidth = 2;
+
+        // Draw the line
+        ctx.stroke();
+    </script>
+</body>
+
+</html>
